@@ -4,12 +4,12 @@ import PageHeading from "./PageHeading.tsx";
 import FeedbackForm from "./FeedbackForm.tsx";
 
 export default function Header() {
-    return (
-        <header>
-            <Pattern />
-            <Logo />
-            <PageHeading />
-            <FeedbackForm />
-        </header>
-    )
+  return (
+    <header>
+      <Pattern />
+      <Logo />
+      <PageHeading />
+      <FeedbackForm />
+    </header>
+  );
 }

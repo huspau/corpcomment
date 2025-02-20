@@ -3,14 +3,13 @@ import Container from "./Container.tsx";
 import HashtagList from "./HashtagList.tsx";
 
 function App() {
-
-    return (
-        <div className="app">
-            <Footer />
-            <Container />
-            <HashtagList />
-        </div>
-    )
+  return (
+    <div className="app">
+      <Footer />
+      <Container />
+      <HashtagList />
+    </div>
+  );
 }
 
-export default App
+export default App;
