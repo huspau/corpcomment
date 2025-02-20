@@ -3,7 +3,7 @@ import FeedbackList from "./FeedbackList.tsx";
 
 export default function Container() {
   return (
-    <main className="Container">
+    <main className="container">
       <Header />
       <FeedbackList />
     </main>
