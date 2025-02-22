@@ -1,6 +1,6 @@
 import Header from "./Header.tsx";
-import FeedbackList from "./FeedbackList.tsx";
-import { TFeedbackItem } from "../lib/types.ts";
+import FeedbackList from "../feedback/FeedbackList.tsx";
+import { TFeedbackItem } from "../../lib/types.ts";
 
 type ContainerProps = {
   isLoading: boolean;

@@ -1,5 +1,5 @@
-import Footer from "./Footer.tsx";
-import Container from "./Container.tsx";
+import Footer from "./layout/Footer.tsx";
+import Container from "./layout/Container.tsx";
 import HashtagList from "./HashtagList.tsx";
 import { useEffect, useState } from "react";
 import { TFeedbackItem } from "../lib/types.ts";
