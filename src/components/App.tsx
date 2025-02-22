@@ -1,7 +1,7 @@
 import Footer from "./layout/Footer.tsx";
 import Container from "./layout/Container.tsx";
 import HashtagList from "./hashtag/HashtagList.tsx";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { TFeedbackItem } from "../lib/types.ts";
 
 export default function App() {
@@ -10,11 +10,17 @@ export default function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedCompany, setSelectedCompany] = useState("");
 
-  const filteredFeedbackItems = selectedCompany
-    ? feedbackItems.filter((item) => item.company === selectedCompany)
-    : feedbackItems;
-  const companyList: string[] = Array.from(
-    new Set(feedbackItems.map((item) => item.company)),
+  const filteredFeedbackItems = useMemo(
+    () =>
+      selectedCompany
+        ? feedbackItems.filter((item) => item.company === selectedCompany)
+        : feedbackItems,
+    [selectedCompany, feedbackItems],
+  );
+
+  const companyList: string[] = useMemo(
+    () => Array.from(new Set(feedbackItems.map((item) => item.company))),
+    [feedbackItems],
   );
 
   const handleSelectCompany = (company: string) => {
