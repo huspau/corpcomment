@@ -3,13 +3,17 @@ import Logo from "./Logo.tsx";
 import PageHeading from "./PageHeading.tsx";
 import FeedbackForm from "./FeedbackForm.tsx";
 
-export default function Header() {
+type HeaderProps = {
+  handleAddToList: (text: string) => void;
+};
+
+export default function Header({ handleAddToList }: HeaderProps) {
   return (
     <header>
       <Pattern />
       <Logo />
       <PageHeading />
-      <FeedbackForm />
+      <FeedbackForm onAddToList={handleAddToList} />
     </header>
   );
 }
