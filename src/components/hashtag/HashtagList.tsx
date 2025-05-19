@@ -1,8 +1,11 @@
 import HashtagItem from "./HashtagItem.tsx";
-import { useFeedbackItemsContext } from "../../lib/hooks.ts";
+import { useFeedbackItemsStore } from "../../stores/feedbackItemsStore.ts";
 
 export default function HashtagList() {
-  const { companyList, handleSelectCompany } = useFeedbackItemsContext();
+  const { companyList, selectCompany } = useFeedbackItemsStore((state) => ({
+    companyList: state.getCompanyList(),
+    selectCompany: state.selectCompany,
+  }));
   return (
     <ul className="hashtags">
       {companyList.map((company) => {
@@ -10,7 +13,7 @@ export default function HashtagList() {
           <HashtagItem
             key={company}
             company={company}
-            onSelectCompany={handleSelectCompany}
+            onSelectCompany={selectCompany}
           />
         );
       })}

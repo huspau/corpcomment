@@ -1,11 +1,14 @@
 import FeedbackItem from "./FeedbackItem.tsx";
 import Spinner from "../Spinner.tsx";
 import ErrorMessage from "../ErrorMessage.tsx";
-import { useFeedbackItemsContext } from "../../lib/hooks.ts";
+import { useFeedbackItemsStore } from "../../stores/feedbackItemsStore.ts";
 
 export default function FeedbackList() {
-  const { isLoading, errorMessage, filteredFeedbackItems } =
-    useFeedbackItemsContext();
+  const isLoading = useFeedbackItemsStore((state) => state.isLoading);
+  const errorMessage = useFeedbackItemsStore((state) => state.errorMessage);
+  const filteredFeedbackItems = useFeedbackItemsStore((state) =>
+    state.getFilteredFeedbackItems(),
+  );
 
   return (
     <ol className="feedback-list">
